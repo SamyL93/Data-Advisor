@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Annotation\UploadableField;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -41,6 +42,11 @@ class Article
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @UploadableField(property="image", path="uploads/article")
+     */
+    private $imageFichier = null;
 
     public function getId(): ?int
     {
@@ -103,6 +109,18 @@ class Article
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getImageFichier(): ?\Symfony\Component\HttpFoundation\File\File
+    {
+        return $this->imageFichier;
+    }
+
+    public function setImageFichier($imageFichier): self
+    {
+        $this->imageFichier = $imageFichier;
 
         return $this;
     }

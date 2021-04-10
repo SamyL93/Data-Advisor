@@ -16,7 +16,7 @@ class ArticleController extends AbstractController
 {
 
     /**
-     * @Route(path="/api/info", name="api_info", methods={"GET"})
+     * @Route(path="/api/articles", name="api_article", methods={"GET"})
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
@@ -25,12 +25,13 @@ class ArticleController extends AbstractController
     {
 
         if($request->isXmlHttpRequest() && $request->isMethod("GET")) {
-
-            $articles = $em->getRepository(Article::class)->findAll();
-
-            $jsonData = [];
-
+            $orderBy = 'ASC';
+            if ($request->request->has('order')){
+                $orderBy = $request->request->get('order');
+            }
+            $articles = $em->getRepository(Article::class)->findBy([], ['id' => $orderBy]);
             $jsonData = $articles;
+            dd($jsonData);
             return new JsonResponse($jsonData, Response::HTTP_OK);
         }
 
