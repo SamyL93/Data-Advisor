@@ -3,7 +3,39 @@
 {% block title %}test{% endblock %}
 
 {% block body %}
-    <h2> Ajouter un article </h2>
     <br>
-    {{ form(form) }}
+    <a href="{{ path('article_add') }}"><button type="button" class="btn btn-primary">Ajouter un article <i class="fa fa-plus-square"></i></button></a>
+    <br>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">titre</th>
+            <th scope="col">description</th>
+            <th scope="col">date</th>
+            <th scope="col">url</th>
+            <th scope="col">image</th>
+            <th scope="col">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titre }}</td>
+                <td>{{ article.description }}</td>
+                <td>{{ article.createdAt | date("d/m/Y") }}</td>
+                <td><a href="{{ article.url }}" target="_blank"><i class="fa fa-share-square-o"></i></a></td>
+                <td><a href="{{ article.image }}" target="_blank"><i class="fa fa-share-square-o"></i></a></td>
+                <td>
+                    <a href="{{ path('article_edit', {id: article.id}) }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ path('article_delete', {id: article.id}) }} }}"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
