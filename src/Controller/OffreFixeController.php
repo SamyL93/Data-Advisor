@@ -17,12 +17,12 @@ class OffreFixeController extends AbstractController
 {
 
     /**
-     * @Route(path="/api/info", name="api_info", methods={"GET"})
+     * @Route(path="/api/fix", name="api_fix", methods={"GET"})
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
-    public function returnArticles(Request $request, EntityManagerInterface $em)
+    public function returnFix(Request $request, EntityManagerInterface $em)
     {
 
         if($request->isXmlHttpRequest() && $request->isMethod("GET")) {

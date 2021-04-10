@@ -17,12 +17,12 @@ class OffreMobileController extends AbstractController
 {
 
     /**
-     * @Route(path="/api/info", name="api_info", methods={"GET"})
+     * @Route(path="/api/mobile", name="api_mobile", methods={"GET"})
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return JsonResponse
      */
-    public function returnArticles(Request $request, EntityManagerInterface $em)
+    public function returnMobile(Request $request, EntityManagerInterface $em)
     {
 
         if($request->isXmlHttpRequest() && $request->isMethod("GET")) {

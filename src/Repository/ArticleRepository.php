@@ -47,4 +47,13 @@ class ArticleRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllOrder($order)
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.createdAt', $order)
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
 }

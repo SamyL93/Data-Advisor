@@ -31,7 +31,7 @@ class Article
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $heure_publi;
+    private $createdAt;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -77,14 +77,14 @@ class Article
         return $this;
     }
 
-    public function getHeurePubli(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->heure_publi;
+        return $this->createdAt;
     }
 
-    public function setHeurePubli(?\DateTimeInterface $heure_publi): self
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
     {
-        $this->heure_publi = $heure_publi;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

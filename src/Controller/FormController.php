@@ -29,7 +29,7 @@ class FormController extends AbstractController
             $em->persist($article);
             $em->flush();
         }
-        return $this->render('operateur/index.html.twig', [
+        return $this->render('article/index.html.twig', [
             'form' => $form->createView()
         ]);
     }

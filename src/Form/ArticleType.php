@@ -26,7 +26,7 @@ class ArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('heure_publi', DateTimeType::class, [
+            ->add('createdAt', DateTimeType::class, [
                 'label' => 'Date publication',
                 'widget' => 'single_text',
                 'placeholder' => 'jj/mm/aaaa - hh:mm',
