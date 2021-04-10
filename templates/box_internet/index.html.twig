@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}test{% endblock %}
+
+{% block body %}
+    <br>
+    <a href="{{ path('box_internet_add') }}"><button type="button" class="btn btn-primary">Ajouter une box internet <i class="fa fa-plus-square"></i></button></a>
+    <br>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">titre</th>
+            <th scope="col">prix</th>
+            <th scope="col">url</th>
+            <th scope="col">image</th>
+            <th scope="col">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for offre in boxInternet %}
+            <tr>
+                <td>{{ offre.id }}</td>
+                <td>{{ offre.titre }}</td>
+                <td>{{ offre.prix }}</td>
+                <td><a href="{{ offre.url }}" target="_blank"><i class="fa fa-share-square-o"></i></a></td>
+                <td><a href="{{ offre.image }}" target="_blank"><i class="fa fa-share-square-o"></i></a></td>
+                <td>
+                    <a href="{{ path('box_internet_edit', {id: offre.id}) }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ path('box_internet_delete', {id: offre.id}) }} }}"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

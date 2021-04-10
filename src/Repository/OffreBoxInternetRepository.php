@@ -3,20 +3,21 @@
 namespace App\Repository;
 
 use App\Entity\Offre;
+use App\Entity\OffreBoxInternet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method OffreFixeRepository|null find($id, $lockMode = null, $lockVersion = null)
- * @method OffreFixeRepository|null findOneBy(array $criteria, array $orderBy = null)
- * @method OffreFixeRepository[]    findAll()
- * @method OffreFixeRepository[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method OffreBoxInternetRepository|null find($id, $lockMode = null, $lockVersion = null)
+ * @method OffreBoxInternetRepository|null findOneBy(array $criteria, array $orderBy = null)
+ * @method OffreBoxInternetRepository[]    findAll()
+ * @method OffreBoxInternetRepository[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OffreFixeRepository extends ServiceEntityRepository
+class OffreBoxInternetRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Offre::class);
+        parent::__construct($registry, OffreBoxInternet::class);
     }
 
     // /**
@@ -47,4 +48,20 @@ class OffreFixeRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllMax3()
+    {
+        return $this->createQueryBuilder('obi')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
+    public function findAllFilters()
+    {
+        return $this->createQueryBuilder('obi')
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
 }

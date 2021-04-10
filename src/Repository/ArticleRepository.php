@@ -48,7 +48,7 @@ class ArticleRepository extends ServiceEntityRepository
     }
     */
 
-    public function findAllOrder($order)
+    public function findAllOrder($order = "DESC")
     {
         return $this->createQueryBuilder('a')
             ->orderBy('a.createdAt', $order)

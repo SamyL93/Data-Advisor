@@ -16,6 +16,23 @@
         {% endblock %}
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{{ path('home') }}">Backoffice</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('articles') }}">Articles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('box_internet') }}">Box internet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('mobile') }}">Mobile</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         {% block body %}{% endblock %}
     </body>
 </html>

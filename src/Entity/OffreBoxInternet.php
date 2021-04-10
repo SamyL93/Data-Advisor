@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\OffreMobile;
+use App\Repository\OffreBoxInternetRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Annotation\UploadableField;
 
 /**
- * @ORM\Entity(repositoryClass=OffreFixeRepository::class)
+ * @ORM\Entity(repositoryClass=OffreBoxInternetRepository::class)
  */
-class OffreFixe
+class OffreBoxInternet
 {
     /**
      * @ORM\Id
@@ -26,6 +27,11 @@ class OffreFixe
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @UploadableField(property="image", path="uploads/box-internet")
+     */
+    private $imageFichier = null;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -86,6 +92,18 @@ class OffreFixe
     public function setUrl(string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getImageFichier(): ?\Symfony\Component\HttpFoundation\File\File
+    {
+        return $this->imageFichier;
+    }
+
+    public function setImageFichier($imageFichier): self
+    {
+        $this->imageFichier = $imageFichier;
 
         return $this;
     }
