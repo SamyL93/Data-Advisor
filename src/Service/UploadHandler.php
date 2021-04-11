@@ -34,7 +34,7 @@ class UploadHandler
             $this->removeOldFile($entity, $annotation);
 
             //Rename file name with a String random
-            $filename = ByteString::fromRandom(32) . '.' . $this->extentsionFile($file->getMimeType());
+            $filename = ByteString::fromRandom(32) . '.' .$file->getClientOriginalExtension();
 
             //Upload File
             $path = $annotation->getPath();

@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b5725d80-589e-4684-9e69-3d366231bab7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/OffreMobileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreMobileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/OffreMobileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OffreMobileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OffreBoxInternetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreBoxInternetController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/OffreBoxInternetRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OffreBoxInternetRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UploadHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UploadHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +157,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Form" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/carte" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -165,16 +168,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/uploads/article" />
-      <recent name="$PROJECT_DIR$/public/upload/article" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/carte" />
       <recent name="$PROJECT_DIR$/src/Form" />
       <recent name="$PROJECT_DIR$/templates/article" />
       <recent name="$PROJECT_DIR$" />
       <recent name="C:\wamp64\www\Data-Advisor\src\Controller" />
-      <recent name="C:\wamp64\www\Data-Advisor\src\Repository" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/uploads/article" />
+      <recent name="$PROJECT_DIR$/public/upload/article" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -196,6 +199,8 @@
       <workItem from="1617955347558" duration="1851000" />
       <workItem from="1617982863640" duration="1414000" />
       <workItem from="1618044779936" duration="23183000" />
+      <workItem from="1618110918592" duration="8081000" />
+      <workItem from="1618170138353" duration="720000" />
     </task>
     <servers />
   </component>
@@ -215,20 +220,24 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="373" y="207" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618143700871">
+      <screen x="0" y="23" width="1280" height="750" />
+    </state>
+    <state x="373" y="207" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.750@0.23.1280.750" timestamp="1618143700871" />
     <state x="314" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618077538839">
       <screen x="0" y="23" width="1280" height="750" />
     </state>
     <state x="415" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1617922015000" />
     <state x="314" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.750@0.23.1280.750" timestamp="1618077538839" />
-    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618109679827">
+    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618157426907">
       <screen x="0" y="23" width="1280" height="750" />
     </state>
-    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.750@0.23.1280.750" timestamp="1618109679827" />
-    <state x="468" y="231" key="NewPhpClassDialog" timestamp="1618076687627">
+    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.750@0.23.1280.750" timestamp="1618157426907" />
+    <state x="468" y="231" key="NewPhpClassDialog" timestamp="1618142264770">
       <screen x="0" y="23" width="1280" height="750" />
     </state>
     <state x="561" y="228" key="NewPhpClassDialog/-1920.-181.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1615233393579" />
-    <state x="468" y="231" key="NewPhpClassDialog/0.23.1280.750@0.23.1280.750" timestamp="1618076687625" />
+    <state x="468" y="231" key="NewPhpClassDialog/0.23.1280.750@0.23.1280.750" timestamp="1618142264770" />
     <state x="149" y="37" key="SettingsEditor" timestamp="1618051255103">
       <screen x="0" y="23" width="1280" height="750" />
     </state>
@@ -238,5 +247,9 @@
     </state>
     <state x="-1339" y="117" key="com.intellij.ide.util.TipDialog/-1920.-181.1920.1030/0.0.1536.824@-1920.-181.1920.1030" timestamp="1617919430686" />
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/-1920.-181.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1617917745305" />
+    <state x="341" y="153" width="598" height="490" key="find.popup" timestamp="1618143683637">
+      <screen x="0" y="23" width="1280" height="750" />
+    </state>
+    <state x="341" y="153" width="598" height="490" key="find.popup/0.23.1280.750@0.23.1280.750" timestamp="1618143683637" />
   </component>
 </project>
