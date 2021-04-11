@@ -34,6 +34,19 @@ class OffreMobileController extends AbstractController
     }
 
     /**
+     * @Route(path="/api/3/mobile", name="api_3_mobile", methods={"GET"})
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function return3Mobile(EntityManagerInterface $em)
+    {
+        $mobile = $em->getRepository(OffreMobile::class)->findAllMax3();
+        $jsonData = $mobile;
+        return new JsonResponse($jsonData, Response::HTTP_OK);
+    }
+
+    /**
      * @Route(path="/mobile/add", name="mobile_add")
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -47,7 +60,7 @@ class OffreMobileController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $em->persist($mobile);
             $em->flush();
-            return $this->redirectToRoute("box_internet");
+            return $this->redirectToRoute("mobile");
         }
         return $this->render('mobile/add.html.twig', [
             'form' => $form->createView()
@@ -63,7 +76,7 @@ class OffreMobileController extends AbstractController
     {
         $em->remove($offreMobile);
         $em->flush();
-        return $this->redirectToRoute("box_internet");
+        return $this->redirectToRoute("mobile");
     }
 
     /**
@@ -77,9 +90,10 @@ class OffreMobileController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            dump($offreMobile);
             $em->persist($offreMobile);
             $em->flush();
-            return $this->redirectToRoute("box_internet");
+            return $this->redirectToRoute("mobile");
         }
         return $this->render('mobile/edit.html.twig', [
             'form' => $form->createView()

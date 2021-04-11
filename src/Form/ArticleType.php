@@ -25,6 +25,8 @@ class ArticleType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $editMode = $builder->getData()->getId() !== null;
+
         $builder
             ->add('createdAt', DateTimeType::class, [
                 'label' => 'Date publication',
@@ -46,7 +48,7 @@ class ArticleType extends AbstractType
                 'label'=>"Url de article",
             ])
             ->add('imageFichier', FileType::class,[
-                "required" => true,
+                "required" => !$editMode,
                 'label'=>"Image article",
             ])
             ->add('submit', SubmitType::class)

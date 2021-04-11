@@ -48,4 +48,12 @@ class OffreMobileRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findAllMax3()
+    {
+        return $this->createQueryBuilder('om')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
 }

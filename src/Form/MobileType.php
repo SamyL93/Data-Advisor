@@ -24,6 +24,8 @@ class MobileType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $editMode = $builder->getData()->getId() !== null;
+
         $builder
             ->add('titre', TextType::class, [
                 'required' => true,
@@ -34,7 +36,7 @@ class MobileType extends AbstractType
                 'label'=>"Url : ",
             ])
             ->add('imageFichier', FileType::class,[
-                "required" => true,
+                "required" => !$editMode,
                 'label'=>"Image : ",
             ])
             ->add('prix', NumberType::class,[
