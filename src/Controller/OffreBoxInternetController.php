@@ -24,8 +24,6 @@ class OffreBoxInternetController extends AbstractController
      */
     public function returnBoxInternet(Request $request, EntityManagerInterface $em)
     {
-
-        $price = 'DESC';
         if ($request->query->has('prix'))
             $prix = $request->query->get('prix');
         else
@@ -40,12 +38,12 @@ class OffreBoxInternetController extends AbstractController
             $type = $request->query->get('type');
         else
             $type = "";
-        
         $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters($prix, $operateur, $type);
         $jsonData = $boxInternet;
         return new JsonResponse($jsonData, Response::HTTP_OK);
 
     }
+
     /**
      * @Route(path="/api/3/box-internet", name="api_3_box_internet", methods={"GET"})
      * @param Request $request

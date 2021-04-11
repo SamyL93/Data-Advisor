@@ -57,7 +57,6 @@ class OffreBoxInternetRepository extends ServiceEntityRepository
             ->getArrayResult()
             ;
     }
-
     
     public function findAllFilters($prix = null, $operateur = null, $type = null)
     {

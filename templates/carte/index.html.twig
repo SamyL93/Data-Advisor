@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}test{% endblock %}
+
+{% block body %}
+    <br>
+    <a href="{{ path('carte_add') }}"><button type="button" class="btn btn-primary">Ajouter une Carte <i class="fa fa-plus-square"></i></button></a>
+    <br>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">identifiant</th>
+            <th scope="col">json</th>
+            <th scope="col">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for carte in cartes %}
+            <tr>
+                <td>{{ carte.id }}</td>
+                <td>{{ carte.identifier}}</td>
+                <td>
+                    <a href="{{ carte.json }}" download><i class="fa fa-download"></i></a>
+                    <a href="{{ carte.json }}"><i class="fa fa-share-square-o"></i></a>
+                </td>
+                <td>
+                    <a href="{{ path('carte_edit', {id: carte.id}) }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ path('carte_delete', {id: carte.id}) }} }}"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
