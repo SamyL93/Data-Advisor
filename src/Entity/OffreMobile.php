@@ -43,6 +43,21 @@ class OffreMobile
      */
     private $url;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $operateur;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $data;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $type;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +119,42 @@ class OffreMobile
     public function setImageFichier($imageFichier): self
     {
         $this->imageFichier = $imageFichier;
+
+        return $this;
+    }
+
+    public function getOperateur(): ?string
+    {
+        return $this->operateur;
+    }
+
+    public function setOperateur(?string $operateur): self
+    {
+        $this->operateur = $operateur;
+
+        return $this;
+    }
+
+    public function getData(): ?string
+    {
+        return $this->data;
+    }
+
+    public function setData(?string $data): self
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

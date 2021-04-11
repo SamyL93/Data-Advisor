@@ -56,4 +56,28 @@ class OffreMobileRepository extends ServiceEntityRepository
             ->getArrayResult()
             ;
     }
+
+    public function findAllFilters($prix = null, $operateur = null, $data = null, $type = null)
+    {
+        $req = $this->createQueryBuilder('obi');
+        if($prix != null){
+            $req ->andWhere('obi.prix LIKE :prix')
+            ->setParameter('prix', $prix);
+        }
+        if($operateur != null){
+            $req ->andWhere('obi.operateur LIKE :operateur')
+            ->setParameter('operateur', $operateur);
+        }if($data != null){
+            $req ->andWhere('obi.data LIKE :data')
+            ->setParameter('data', $data);
+        }
+        if($type != null){
+            $req ->andWhere('obi.type LIKE :type')
+            ->setParameter('type', $type);
+        }
+        return $req
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
 }

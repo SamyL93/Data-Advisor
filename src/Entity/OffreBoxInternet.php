@@ -43,6 +43,16 @@ class OffreBoxInternet
      */
     private $url;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $operateur;
+
+    /**
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    private $type;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +114,30 @@ class OffreBoxInternet
     public function setImageFichier($imageFichier): self
     {
         $this->imageFichier = $imageFichier;
+
+        return $this;
+    }
+
+    public function getOperateur(): ?string
+    {
+        return $this->operateur;
+    }
+
+    public function setOperateur(?string $operateur): self
+    {
+        $this->operateur = $operateur;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(?string $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

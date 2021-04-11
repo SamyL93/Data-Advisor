@@ -57,9 +57,24 @@ class OffreBoxInternetRepository extends ServiceEntityRepository
             ->getArrayResult()
             ;
     }
-    public function findAllFilters()
+
+    
+    public function findAllFilters($prix = null, $operateur = null, $type = null)
     {
-        return $this->createQueryBuilder('obi')
+        $req = $this->createQueryBuilder('obi');
+        if($prix != null){
+            $req ->andWhere('obi.prix LIKE :prix')
+            ->setParameter('prix', $prix);
+        }
+        if($operateur != null){
+            $req ->andWhere('obi.operateur LIKE :operateur')
+            ->setParameter('operateur', $operateur);
+        }
+        if($type != null){
+            $req ->andWhere('obi.type LIKE :type')
+            ->setParameter('type', $type);
+        }
+        return $req
             ->getQuery()
             ->getArrayResult()
             ;

@@ -45,6 +45,14 @@ class BoxInternetType extends AbstractType
                 'scale' => 2,
 
             ])
+            ->add('operateur', TextType::class,[
+                "required" => true,
+                'label'=>"Opérateur : ",
+            ])
+            ->add('type', TextType::class,[
+                "required" => true,
+                'label'=>"Type d'offre : ",
+            ])
             ->add('submit', SubmitType::class)
         ;
     }

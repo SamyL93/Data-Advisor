@@ -16,6 +16,8 @@
             <th scope="col">prix</th>
             <th scope="col">url</th>
             <th scope="col">image</th>
+            <th scope="col">opérateur</th>
+            <th scope="col">type</th>
             <th scope="col">actions</th>
         </tr>
         </thead>
@@ -28,6 +30,8 @@
                 <td>{{ offre.prix }}</td>
                 <td><a href="{{ offre.url }}" target="_blank"><i class="fa fa-share-square-o"></i></a></td>
                 <td><a href="{{ offre.image }}" target="_blank"><i class="fa fa-share-square-o"></i></a></td>
+                <td>{{ offre.operateur }}</td>
+                <td>{{ offre.type }}</td>
                 <td>
                     <a href="{{ path('box_internet_edit', {id: offre.id}) }}"><i class="fa fa-edit"></i></a>
                     <a href="{{ path('box_internet_delete', {id: offre.id}) }} }}"><i class="fa fa-trash"></i></a>

@@ -24,12 +24,29 @@ class OffreMobileController extends AbstractController
      */
     public function returnMobile(Request $request, EntityManagerInterface $em)
     {
-//        $orderBy = 'DESC';
-//        if ($request->query->has('order')){
-//            $orderBy = $request->query->get('order');
-//        }
-        $box_internet = $em->getRepository(OffreMobile::class)->findAll();
-        $jsonData = $box_internet;
+      $price = 'DESC';
+        if ($request->query->has('prix'))
+        $prix = $request->query->get('prix');
+        else
+            $prix = "";
+        
+        if ($request->query->has('operateur'))
+            $operateur = $request->query->get('operateur');
+        else
+            $operateur = "";
+
+        if ($request->query->has('data'))
+            $data = $request->query->get('data');
+        else
+            $data = "";
+        
+        if ($request->query->has('type'))
+            $type = $request->query->get('type');
+        else
+            $type = "";
+
+        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters($prix, $operateur, $data, $type);
+        $jsonData = $boxInternet;
         return new JsonResponse($jsonData, Response::HTTP_OK);
     }
 
@@ -108,7 +125,6 @@ class OffreMobileController extends AbstractController
     public function allMobile(EntityManagerInterface $em)
     {
         $mobile = $em->getRepository(OffreMobile::class)->findAll();
-
         return $this->render('mobile/index.html.twig', [
             'mobile' => $mobile
         ]);

@@ -24,13 +24,27 @@ class OffreBoxInternetController extends AbstractController
      */
     public function returnBoxInternet(Request $request, EntityManagerInterface $em)
     {
-//        $orderBy = 'DESC';
-//        if ($request->query->has('order')){
-//            $orderBy = $request->query->get('order');
-//        }
-        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters();
+
+        $price = 'DESC';
+        if ($request->query->has('prix'))
+            $prix = $request->query->get('prix');
+        else
+            $prix = "";
+        
+        if ($request->query->has('operateur'))
+            $operateur = $request->query->get('operateur');
+        else
+            $operateur = "";
+        
+        if ($request->query->has('type'))
+            $type = $request->query->get('type');
+        else
+            $type = "";
+        
+        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters($prix, $operateur, $type);
         $jsonData = $boxInternet;
         return new JsonResponse($jsonData, Response::HTTP_OK);
+
     }
     /**
      * @Route(path="/api/3/box-internet", name="api_3_box_internet", methods={"GET"})
@@ -109,7 +123,8 @@ class OffreBoxInternetController extends AbstractController
      */
     public function allBoxInternet(Request $request, EntityManagerInterface $em)
     {
-        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAll();
+        // $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAll();
+        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters();
 
         return $this->render('box_internet/index.html.twig', [
             'boxInternet' => $boxInternet
