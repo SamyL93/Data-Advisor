@@ -36,8 +36,19 @@ class OffreMobileController extends AbstractController
         if ($request->query->has('data'))
             $filter["data"] = $request->query->get('data');
         
-        if ($request->query->has('type'))
-            $filter["type"] = $request->query->get('type');
+        if ($request->query->has('type')){
+            $type = $request->query->get('type');
+            if($type == "5G"){
+                $typeArray = ["5G"];
+            }
+            if($type == "4G"){
+                $typeArray = ["4G","5G"];
+            }
+            if($type == "3G"){
+                $typeArray = ["3G","4G","5G"];
+            }
+            $filter["type"] = $typeArray;
+        }
 
         $orderBy = [];
         if ($request->query->has('orderBy')){

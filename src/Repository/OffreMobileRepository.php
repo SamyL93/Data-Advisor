@@ -94,7 +94,7 @@ class OffreMobileRepository extends ServiceEntityRepository
     public function filterQuery(QueryBuilder $qb, array $filter)
     {
         foreach ($filter as $property => $value) {
-            if($property == "min" || $property == "max"){
+            if($property == "min" || $property == "max" || $property == "type"){
                 continue;
             }
             $qb
@@ -107,6 +107,15 @@ class OffreMobileRepository extends ServiceEntityRepository
                 ->andWhere("obi.prix >= :filter_min")
                 ->setParameter("filter_max", $filter["max"])
                 ->setParameter("filter_min", $filter["min"]);
+        }
+        if (array_key_exists("type",$filter)){
+            foreach ($filter["type"] as $key=>$type){
+                $searchQuery[] = "obi.type = :type$key";
+                $qb->setParameter("type$key", $type);
+            }
+        }
+        if (!empty($searchQuery)) {
+            $qb->andWhere('(' . implode(' OR ', $searchQuery) . ')');
         }
         return $qb;
     }
