@@ -8,6 +8,7 @@ use App\Entity\Carte;
 use App\Form\CarteType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +16,26 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CarteController extends AbstractController
 {
+
+
+    /**
+     * @Route(path="/api/carte/{identifier}", name="api_carte_identifier", methods={"GET"})
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function returnCarte(EntityManagerInterface $em, $identifier)
+    {
+        $identifier = strtoupper($identifier);
+        $carte = $em->getRepository(Carte::class)->findOneBy([
+            'identifier' => $identifier
+        ]);
+
+        $string = file_get_contents($carte->getJson());
+        $jsonData = json_decode($string, true);
+
+        return new JsonResponse($jsonData, Response::HTTP_OK);
+    }
 
     /**
      * @Route(path="/carte/add", name="carte_add")

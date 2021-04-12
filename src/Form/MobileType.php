@@ -54,7 +54,7 @@ class MobileType extends AbstractType
                 'label'=>"Data : ",
             ])
             ->add('type', TextType::class,[
-                "required" => true,
+                "required" => false,
                 'label'=>"Type d'offre : ",
             ])
             ->add('submit', SubmitType::class)

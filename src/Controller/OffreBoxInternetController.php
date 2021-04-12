@@ -24,22 +24,39 @@ class OffreBoxInternetController extends AbstractController
      */
     public function returnBoxInternet(Request $request, EntityManagerInterface $em)
     {
-        if ($request->query->has('prix'))
-            $prix = $request->query->get('prix');
-        else
-            $prix = "";
-        
+        $filter = [];
+        if ($request->query->has('max')){
+            $filter["max"] = $request->query->get('max');
+            $filter["min"] = $request->query->get('min');
+        }
+
         if ($request->query->has('operateur'))
-            $operateur = $request->query->get('operateur');
-        else
-            $operateur = "";
-        
+            $filter["operateur"] = $request->query->get('operateur');
+
         if ($request->query->has('type'))
-            $type = $request->query->get('type');
-        else
-            $type = "";
-        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters($prix, $operateur, $type);
-        $jsonData = $boxInternet;
+            $filter["type"] = $request->query->get('type');
+
+        $orderBy = [];
+        if ($request->query->has('orderBy')){
+            $orderBy["prix"] = $request->query->get('orderBy');
+        }
+
+        $search = [];
+        if ($request->query->has('search')){
+            $search["titre"] = $request->query->get('search');
+        }
+
+        $offset = 0;
+        if ($request->query->has('offset')){
+            $offset = $request->query->get('offset');
+        }
+
+        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters($search, $filter, $orderBy, 9, $offset);
+        $countBoxInternet = $em->getRepository(OffreBoxInternet::class)->countAllFilters($search, $filter, $orderBy, 9, $offset);
+        $jsonData = [
+            "data"=>$boxInternet,
+            "count"=>$countBoxInternet
+        ];
         return new JsonResponse($jsonData, Response::HTTP_OK);
 
     }
@@ -121,8 +138,7 @@ class OffreBoxInternetController extends AbstractController
      */
     public function allBoxInternet(Request $request, EntityManagerInterface $em)
     {
-        // $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAll();
-        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters();
+        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAll();
 
         return $this->render('box_internet/index.html.twig', [
             'boxInternet' => $boxInternet

@@ -24,29 +24,42 @@ class OffreMobileController extends AbstractController
      */
     public function returnMobile(Request $request, EntityManagerInterface $em)
     {
-      $price = 'DESC';
-        if ($request->query->has('prix'))
-        $prix = $request->query->get('prix');
-        else
-            $prix = "";
-        
+        $filter = [];
+        if ($request->query->has('min')){
+            $filter["max"] = $request->query->get('max');
+            $filter["min"] = $request->query->get('min');
+        }
+
         if ($request->query->has('operateur'))
-            $operateur = $request->query->get('operateur');
-        else
-            $operateur = "";
+            $filter["operateur"] = $request->query->get('operateur');
 
         if ($request->query->has('data'))
-            $data = $request->query->get('data');
-        else
-            $data = "";
+            $filter["data"] = $request->query->get('data');
         
         if ($request->query->has('type'))
-            $type = $request->query->get('type');
-        else
-            $type = "";
+            $filter["type"] = $request->query->get('type');
 
-        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAllFilters($prix, $operateur, $data, $type);
-        $jsonData = $boxInternet;
+        $orderBy = [];
+        if ($request->query->has('orderBy')){
+            $orderBy["prix"] = $request->query->get('orderBy');
+        }
+
+        $search = [];
+        if ($request->query->has('search')){
+            $search["titre"] = $request->query->get('search');
+        }
+
+        $offset = 0;
+        if ($request->query->has('offset')){
+            $offset = $request->query->get('offset');
+        }
+
+        $mobile = $em->getRepository(OffreMobile::class)->findAllFilters($search, $filter, $orderBy, 9, $offset);
+        $countMobile = $em->getRepository(OffreMobile::class)->countAllFilters($search, $filter, $orderBy, 9, $offset);
+        $jsonData = [
+            "data"=>$mobile,
+            "count"=>$countMobile
+        ];
         return new JsonResponse($jsonData, Response::HTTP_OK);
     }
 
