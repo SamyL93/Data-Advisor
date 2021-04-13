@@ -53,6 +53,11 @@ class OffreBoxInternet
      */
     private $type;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $hasTv = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,4 +146,24 @@ class OffreBoxInternet
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getHasTv() : ?bool
+    {
+        return $this->hasTv;
+    }
+
+    /**
+     * @param mixed $hasTv
+     * @return OffreBoxInternet
+     */
+    public function setHasTv($hasTv) : self
+    {
+        $this->hasTv = $hasTv;
+        return $this;
+    }
+
+
 }

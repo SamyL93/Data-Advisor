@@ -21,8 +21,27 @@
   <component name="ChangeListManager">
     <list default="true" id="b5725d80-589e-4684-9e69-3d366231bab7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/box-internet/T93V9ZVhaJ2co1wP56R54zhP6h1xtDH3.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/box-internet/h2kYWi3MJp7f8h2QVYBVgiLqvs61WUCk.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/box-internet/jwt8TdJswNNVARvqX4Pv6tPjNZLmzTT9.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/mobile/7zSu7gyBnjQJzbtS7nx1gir3KRJcPJP3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/mobile/vSaijunRxWhb5y59acxEjieTaf9uKCRS.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OffreBoxInternetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreBoxInternetController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/OffreMobileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OffreMobileController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Adresse.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/OffreBoxInternet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/OffreBoxInternet.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/BoxInternetType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BoxInternetType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/MobileType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MobileType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/OffreMobileRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OffreMobileRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/box_internet/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/box_internet/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/carte/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/carte/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mobile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mobile/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +173,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/carte" />
+    <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/source" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -165,16 +185,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/carte" />
-      <recent name="$PROJECT_DIR$/src/Form" />
-      <recent name="$PROJECT_DIR$/templates/article" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="C:\wamp64\www\Data-Advisor\src\Controller" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/uploads/article" />
       <recent name="$PROJECT_DIR$/public/upload/article" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/source" />
+      <recent name="$PROJECT_DIR$/templates/api" />
+      <recent name="$PROJECT_DIR$/templates/carte" />
+      <recent name="$PROJECT_DIR$/src/Form" />
+      <recent name="$PROJECT_DIR$/templates/article" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -199,6 +219,8 @@
       <workItem from="1618110918592" duration="8081000" />
       <workItem from="1618170138353" duration="7097000" />
       <workItem from="1618220922889" duration="9450000" />
+      <workItem from="1618262738292" duration="8500000" />
+      <workItem from="1618304215167" duration="4815000" />
     </task>
     <servers />
   </component>
@@ -222,20 +244,24 @@
       <screen x="0" y="23" width="1280" height="750" />
     </state>
     <state x="373" y="207" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.750@0.23.1280.750" timestamp="1618143700871" />
+    <state x="428" y="114" key="#com.intellij.ide.util.MemberChooser" timestamp="1618263872137">
+      <screen x="0" y="23" width="1280" height="750" />
+    </state>
+    <state x="428" y="114" key="#com.intellij.ide.util.MemberChooser/0.23.1280.750@0.23.1280.750" timestamp="1618263872137" />
     <state x="314" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1618077538839">
       <screen x="0" y="23" width="1280" height="750" />
     </state>
     <state x="415" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1617922015000" />
     <state x="314" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1280.750@0.23.1280.750" timestamp="1618077538839" />
-    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618231323318">
+    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618274690889">
       <screen x="0" y="23" width="1280" height="750" />
     </state>
-    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.750@0.23.1280.750" timestamp="1618231323318" />
-    <state x="468" y="231" key="NewPhpClassDialog" timestamp="1618142264770">
+    <state x="378" y="160" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1280.750@0.23.1280.750" timestamp="1618274690889" />
+    <state x="468" y="231" key="NewPhpClassDialog" timestamp="1618274722506">
       <screen x="0" y="23" width="1280" height="750" />
     </state>
     <state x="561" y="228" key="NewPhpClassDialog/-1920.-181.1920.1030/0.0.1536.824@0.0.1536.824" timestamp="1615233393579" />
-    <state x="468" y="231" key="NewPhpClassDialog/0.23.1280.750@0.23.1280.750" timestamp="1618142264770" />
+    <state x="468" y="231" key="NewPhpClassDialog/0.23.1280.750@0.23.1280.750" timestamp="1618274722506" />
     <state x="149" y="37" key="SettingsEditor" timestamp="1618051255103">
       <screen x="0" y="23" width="1280" height="750" />
     </state>

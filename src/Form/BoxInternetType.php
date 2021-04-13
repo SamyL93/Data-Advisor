@@ -5,7 +5,11 @@ namespace App\Form;
 
 
 use App\Entity\OffreBoxInternet;
+use App\Enum\OperatorsEnum;
+use App\Enum\TypeBoxInternetEnum;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -45,13 +49,19 @@ class BoxInternetType extends AbstractType
                 'scale' => 2,
 
             ])
-            ->add('operateur', TextType::class,[
+            ->add('operateur', ChoiceType::class,[
+                "choices" => OperatorsEnum::OPERATORS,
                 "required" => true,
                 'label'=>"Opérateur : ",
             ])
-            ->add('type', TextType::class,[
+            ->add('type', ChoiceType::class,[
+                "choices" => TypeBoxInternetEnum::TYPE,
                 "required" => true,
                 'label'=>"Type d'offre : ",
+            ])
+            ->add('hasTv', CheckboxType::class,[
+                "required" => false,
+                'label'=>"Télévision incluse",
             ])
             ->add('submit', SubmitType::class)
         ;

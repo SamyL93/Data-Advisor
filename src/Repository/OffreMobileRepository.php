@@ -58,6 +58,15 @@ class OffreMobileRepository extends ServiceEntityRepository
             ;
     }
 
+    public function findAllData()
+    {
+        return $this->createQueryBuilder('om')
+            ->select("distinct om.data")
+            ->getQuery()
+            ->getArrayResult()
+            ;
+    }
+
     public function findAllFilters(array $search = [], array $filter = [], array $orderBy = [], int $limit = 9, int $offset = 0)
     {
         $qb = $this->createQueryBuilder('obi')
@@ -94,7 +103,7 @@ class OffreMobileRepository extends ServiceEntityRepository
     public function filterQuery(QueryBuilder $qb, array $filter)
     {
         foreach ($filter as $property => $value) {
-            if($property == "min" || $property == "max" || $property == "type"){
+            if($property == "min" || $property == "max"){
                 continue;
             }
             $qb
@@ -108,15 +117,15 @@ class OffreMobileRepository extends ServiceEntityRepository
                 ->setParameter("filter_max", $filter["max"])
                 ->setParameter("filter_min", $filter["min"]);
         }
-        if (array_key_exists("type",$filter)){
-            foreach ($filter["type"] as $key=>$type){
-                $searchQuery[] = "obi.type = :type$key";
-                $qb->setParameter("type$key", $type);
-            }
-        }
-        if (!empty($searchQuery)) {
-            $qb->andWhere('(' . implode(' OR ', $searchQuery) . ')');
-        }
+//        if (array_key_exists("type",$filter)){
+//            foreach ($filter["type"] as $key=>$type){
+//                $searchQuery[] = "obi.type = :type$key";
+//                $qb->setParameter("type$key", $type);
+//            }
+//        }
+//        if (!empty($searchQuery)) {
+//            $qb->andWhere('(' . implode(' OR ', $searchQuery) . ')');
+//        }
         return $qb;
     }
 

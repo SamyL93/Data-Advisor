@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mobile{% endblock %}
+
+{% block body %}
+    <h3 class="m-4"> Requête faite dans ce projet </h3>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 p-2">
+                <a href="{{ path('api_article') }}" target="_blank">
+                    {{ app.request.uri }}{{ path('api_article') }}
+                </a>
+            </div>
+            <div class="col-12 p-2">
+                <a href="{{ path('api_3_box_internet') }}" target="_blank">
+                    {{ app.request.uri }}{{ path('api_3_box_internet') }}
+                </a>
+            </div>
+            <div class="col-12 p-2">
+                <a href="{{ path('api_3_mobile') }}" target="_blank">
+                    {{ app.request.uri }}{{ path('api_3_mobile') }}
+                </a>
+            </div>
+            <div class="col-12 p-2">
+                <a href="{{ path('api_carte_identifier', {identifier : "5G"}) }}" target="_blank">
+                    {{ app.request.uri }}{{ path('api_carte_identifier', {identifier : "5G"}) }}
+                </a>
+            </div>
+            <div class="col-12 p-2">
+                <a href="{{ path('api_data_mobile') }}" target="_blank">
+                    {{ app.request.uri }}{{ path('api_data_mobile') }}
+                </a>
+            </div>
+            <div class="col-12 p-2">
+                <a href="{{ path('api_box_internet') }}" target="_blank">
+                    {{ app.request.uri }}{{ path('api_box_internet') }}
+                </a>
+            </div>
+            <div class="col-12 p-2">
+                <a href="{{ path('api_mobile') }}" target="_blank">
+                    {{ app.request.uri }}{{ path('api_mobile') }}
+                </a>
+            </div>
+            <div class="col-12 p-2 mt-5">
+                <p>
+                    On peut aussi ajouter des parametre de querry.
+                </p>
+                <p>
+                    Pour Box Internet :
+                </p>
+                <ul>
+                    <li>"?max=100"</li>
+                    <li>"?min=0"</li>
+                    <li>"?operateur=FREE"</li>
+                    <li>"?type=FIBRE"</li>
+                    <li>"?hasTv=1"</li>
+                    <li>"?orderBy=ASC"</li>
+                    <li>"?search=pouce"</li>
+                    <li>"?offset=9"</li>
+                    <li>
+                        Exemple :
+                        <a href="{{ path('api_box_internet')  ~ "?orderBy=DESC&operateur=FREE" }}" target="_blank">
+                            {{ app.request.uri }}{{ path('api_box_internet') ~ "?orderBy=DESC&operateur=FREE" }}
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    Pour Forfait Mobile :
+                </p>
+                <ul>
+                    <li>"?max=100"</li>
+                    <li>"?min=0"</li>
+                    <li>"?operateur=FREE"</li>
+                    <li>"?type=5G"</li>
+                    <li>"?data=15%20Go"</li>
+                    <li>"?orderBy=ASC"</li>
+                    <li>"?search=orange"</li>
+                    <li>"?offset=9"</li>
+                    <li>
+                        Exemple :
+                        <a href="{{ path('api_mobile')  ~ "?orderBy=DESC&operateur=ORANGE" }}" target="_blank">
+                            {{ app.request.uri }}{{ path('api_mobile') ~ "?orderBy=DESC&operateur=ORANGE" }}
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    Pour Article :
+                </p>
+                <ul>
+                    <li>"?orderBy=ASC"</li>
+                    <li>
+                        Exemple :
+                        <a href="{{ path('api_article')  ~ "?orderBy=DESC" }}" target="_blank">
+                            {{ app.request.uri }}{{ path('api_article') ~ "?orderBy=DESC" }}
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

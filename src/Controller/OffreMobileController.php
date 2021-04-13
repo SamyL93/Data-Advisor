@@ -38,16 +38,7 @@ class OffreMobileController extends AbstractController
         
         if ($request->query->has('type')){
             $type = $request->query->get('type');
-            if($type == "5G"){
-                $typeArray = ["5G"];
-            }
-            if($type == "4G"){
-                $typeArray = ["4G","5G"];
-            }
-            if($type == "3G"){
-                $typeArray = ["3G","4G","5G"];
-            }
-            $filter["type"] = $typeArray;
+            $filter["type"] = $type;
         }
 
         $orderBy = [];
@@ -84,6 +75,23 @@ class OffreMobileController extends AbstractController
     {
         $mobile = $em->getRepository(OffreMobile::class)->findAllMax3();
         $jsonData = $mobile;
+        return new JsonResponse($jsonData, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route(path="/api/data/mobile", name="api_data_mobile", methods={"GET"})
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return JsonResponse
+     */
+    public function returnDataMobile(EntityManagerInterface $em)
+    {
+        $mobile = $em->getRepository(OffreMobile::class)->findAllData();
+        $jsonData = [];
+        foreach ($mobile as $data){
+            array_push($jsonData, $data["data"]);
+        }
+        sort($jsonData, SORT_NUMERIC);
         return new JsonResponse($jsonData, Response::HTTP_OK);
     }
 
@@ -148,7 +156,7 @@ class OffreMobileController extends AbstractController
      */
     public function allMobile(EntityManagerInterface $em)
     {
-        $mobile = $em->getRepository(OffreMobile::class)->findAll();
+        $mobile = $em->getRepository(OffreMobile::class)->findBy([],["operateur"=>"ASC"]);
         return $this->render('mobile/index.html.twig', [
             'mobile' => $mobile
         ]);

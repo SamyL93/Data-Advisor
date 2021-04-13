@@ -5,7 +5,9 @@ namespace App\Form;
 
 
 use App\Entity\OffreMobile;
+use App\Enum\OperatorsEnum;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -45,7 +47,8 @@ class MobileType extends AbstractType
                 'scale' => 2,
 
             ])
-            ->add('operateur', TextType::class,[
+            ->add('operateur', ChoiceType::class,[
+                "choices" => OperatorsEnum::OPERATORS,
                 "required" => true,
                 'label'=>"Opérateur : ",
             ])
@@ -53,8 +56,13 @@ class MobileType extends AbstractType
                 "required" => true,
                 'label'=>"Data : ",
             ])
-            ->add('type', TextType::class,[
-                "required" => false,
+            ->add('type', ChoiceType::class,[
+                "choices" => [
+                    "5G"=>"5G",
+                    "4G"=>"4G",
+                    "3G"=>"3G",
+                ],
+                "required" => true,
                 'label'=>"Type d'offre : ",
             ])
             ->add('submit', SubmitType::class)

@@ -36,6 +36,9 @@ class OffreBoxInternetController extends AbstractController
         if ($request->query->has('type'))
             $filter["type"] = $request->query->get('type');
 
+        if ($request->query->has('hasTv'))
+            $filter["hasTv"] = $request->query->get('hasTv');
+
         $orderBy = [];
         if ($request->query->has('orderBy')){
             $orderBy["prix"] = $request->query->get('orderBy');
@@ -138,7 +141,7 @@ class OffreBoxInternetController extends AbstractController
      */
     public function allBoxInternet(Request $request, EntityManagerInterface $em)
     {
-        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findAll();
+        $boxInternet = $em->getRepository(OffreBoxInternet::class)->findBy([],["operateur"=>"ASC"]);
 
         return $this->render('box_internet/index.html.twig', [
             'boxInternet' => $boxInternet
